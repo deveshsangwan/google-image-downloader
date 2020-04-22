@@ -20,8 +20,11 @@ def main():
 		os.makedirs(download_path + searchtext.replace(" ", "_"))
 
 	url = "https://www.google.co.in/search?q="+searchtext+"&source=lnms&tbm=isch"
-	chrome_path = "chromedriver.exe"
-	driver = webdriver.Chrome(chrome_path)
+	chrome_driver_path = "chromedriver.exe"  
+	browser_path = "C:\\Program Files (x86)\\BraveSoftware\\Brave-Browser\\Application\\brave.exe" 
+	option = webdriver.ChromeOptions()
+	option.binary_location = browser_path   
+	driver = webdriver.Chrome(executable_path = chrome_driver_path, chrome_options = option)
 	driver.get(url)
 
 	headers = {}

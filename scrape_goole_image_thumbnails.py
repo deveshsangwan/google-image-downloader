@@ -13,7 +13,8 @@ searchword = input()
 searchurl = ('https://www.google.com/search?q=' + searchword + '&source=lnms&tbm=isch')
 dirs = 'pictures'
 maxcount = 100
-chrome_path = "chromedriver.exe"
+chrome_driver_path = "chromedriver.exe"
+browser_path = "C:\\Program Files (x86)\\BraveSoftware\\Brave-Browser\\Application\\brave.exe" 
 
 if not os.path.exists(dirs):
     os.mkdir(dirs)
@@ -22,11 +23,12 @@ if not os.path.exists(dirs):
 def download_google_staticimages():
 
     options = webdriver.ChromeOptions()
+    options.binary_location = browser_path
     options.add_argument('--no-sandbox')
     # options.add_argument('--headless')
 
     try:
-        driver = webdriver.Chrome(chrome_path, options=options)
+        driver = webdriver.Chrome(executable_path = chrome_driver_path, chrome_options = options)
     except Exception as e:
         print('Chrome driver not found')
         print(f'exception: {e}')
