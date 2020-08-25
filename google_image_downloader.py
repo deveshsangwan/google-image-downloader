@@ -21,7 +21,7 @@ def main():
 
 	url = "https://www.google.co.in/search?q="+searchtext+"&source=lnms&tbm=isch"
 	chrome_driver_path = "chromedriver.exe"  
-	browser_path = "C:\\Program Files (x86)\\BraveSoftware\\Brave-Browser\\Application\\brave.exe" 
+	browser_path = "C:\\Users\\Devesh sangwan\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\\brave.exe" 
 	option = webdriver.ChromeOptions()
 	option.binary_location = browser_path   
 	driver = webdriver.Chrome(executable_path = chrome_driver_path, chrome_options = option)

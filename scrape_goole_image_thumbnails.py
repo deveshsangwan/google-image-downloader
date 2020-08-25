@@ -14,7 +14,7 @@ searchurl = ('https://www.google.com/search?q=' + searchword + '&source=lnms&tbm
 dirs = 'pictures'
 maxcount = 100
 chrome_driver_path = "chromedriver.exe"
-browser_path = "C:\\Program Files (x86)\\BraveSoftware\\Brave-Browser\\Application\\brave.exe" 
+browser_path = "C:\\Users\\Devesh sangwan\\AppData\\Local\\BraveSoftware\\Brave-Browser\\Application\\brave.exe" 
 
 if not os.path.exists(dirs):
     os.mkdir(dirs)
