@@ -9,7 +9,7 @@ import ImageScraper.image_scraper as img_scp
 
 # adding path to chromedriver to the OS environment variable
 os.environ["PATH"] += os.pathsep + os.getcwd()
-download_path = "dataset1/"
+download_path = "dataset/"
 
 
 def Diff(li1, li2):
@@ -94,8 +94,8 @@ def main():
     for url in links_left:
         img_count = img_scp.img_download(url, download_path+searchtext.replace(" ", "_")+"/", img_count)
     driver.quit()
-    file1 = open("page_source.txt", "w", encoding='utf8')
-    file1.writelines(links_left)
+    #file1 = open("page_source.txt", "w", encoding='utf8')
+    #file1.writelines(links_left)
 
 
 if __name__ == "__main__":
