@@ -9,7 +9,7 @@ import ImageScraper.image_scraper as img_scp
 
 # adding path to chromedriver to the OS environment variable
 os.environ["PATH"] += os.pathsep + os.getcwd()
-download_path = "dataset/"
+download_path = "dataset1/"
 
 
 def Diff(li1, li2):
@@ -42,7 +42,7 @@ def main():
     downloaded_img_count = 0
 
     for _ in range(int(number_of_scrolls)):
-        for __ in range(10):
+        for __ in range(15):
             driver.execute_script("window.scrollBy(0, 1000000)")
             time.sleep(0.2)
         time.sleep(0.5)
@@ -65,8 +65,12 @@ def main():
     for i in html:
         if i.startswith('http') and i.split('"')[0].split('.')[-1] in extensions:
             imges.append(i.split('"')[0])
+    links = list(set(links))
+    imges = list(set(imges))
     print(imges)
     links_left = Diff(links, imges)
+    file1 = open("page_source.txt", "w", encoding='utf8')
+    file1.writelines(links_left)
     img_type = []
     print("Total images: {}\n".format(len(imges)))
     for img in imges:
@@ -94,8 +98,6 @@ def main():
     for url in links_left:
         img_count = img_scp.img_download(url, download_path+searchtext.replace(" ", "_")+"/", img_count)
     driver.quit()
-    #file1 = open("page_source.txt", "w", encoding='utf8')
-    #file1.writelines(links_left)
 
 
 if __name__ == "__main__":
