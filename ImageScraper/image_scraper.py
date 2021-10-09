@@ -64,6 +64,10 @@ def download(url, pathname, count):
                 # update the progress bar manually
                 progress.update(len(data))
         count += 1
+    except requests.exceptions.ConnectionError as e:
+        print("Error:", e)
+    except requests.exceptions.InvalidURL as e:
+        print("Error:", e)
     except ProtocolError:
         print("Disconncected")
     return count
