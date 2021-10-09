@@ -69,8 +69,13 @@ def main():
     imges = list(set(imges))
     print(imges)
     links_left = Diff(links, imges)
+
+    #removing duplicates
+    urls_new = []
+    [urls_new.append(x) for x in links_left if x not in urls_new]
+
     file1 = open("page_source.txt", "w", encoding='utf8')
-    file1.writelines(links_left)
+    file1.writelines(urls_new)
     img_type = []
     print("Total images: {}\n".format(len(imges)))
     for img in imges:
@@ -93,9 +98,9 @@ def main():
             break
 
     print("Total downloaded: {}/{}".format(downloaded_img_count, img_count))
-    print("Total images: {}\n".format(len(links_left)))
+    print("Total images: {}\n".format(len(urls_new)))
 
-    for url in links_left:
+    for url in urls_new:
         img_count = img_scp.img_download(url, download_path+searchtext.replace(" ", "_")+"/", img_count)
     driver.quit()
 

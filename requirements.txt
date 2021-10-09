@@ -1,2 +1,3 @@
 selenium
 requests
+msedge-selenium-tools
