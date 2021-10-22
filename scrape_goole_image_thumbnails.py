@@ -58,9 +58,9 @@ def download_google_staticimages():
             element.send_keys(Keys.PAGE_DOWN)
             time.sleep(0.3)
 
-    print(f'Reached end of page.')
+    print('Reached end of page.')
     time.sleep(0.5)
-    print(f'Retry')
+    print('Retry')
     time.sleep(0.5)
 
     # loading more results
@@ -126,7 +126,7 @@ def main():
     t1 = time.time()
 
     total_time = t1 - t0
-    print(f'\n')
+    print('\n')
     print(f'Download completed. [Successful count = {count}].')
     print(f'Total time is {str(total_time)} seconds.')
 
